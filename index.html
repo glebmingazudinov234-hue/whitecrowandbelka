@@ -1,11 +1,10 @@
 
-index.html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>три лепестка | фотки · аниме · книга</title>
+    <title>три лепестка | фотки · аниме · книга | сохраняется всё</title>
     <style>
         * {
             margin: 0;
@@ -21,7 +20,7 @@ index.html
             position: relative;
         }
 
-        /* цветочный фон (лёгкие лепестки) */
+        /* цветочный фон */
         .flower-bg {
             position: fixed;
             top: 0;
@@ -87,7 +86,7 @@ index.html
             color: #bf7a92;
         }
 
-        /* основной контент (изначально скрыт) */
+        /* основной контент */
         .main-site {
             opacity: 0;
             transition: opacity 1s ease;
@@ -98,7 +97,7 @@ index.html
             z-index: 10;
         }
 
-        /* три цветка-кнопки для навигации */
+        /* три цветка-кнопки */
         .flower-nav {
             display: flex;
             justify-content: center;
@@ -121,9 +120,7 @@ index.html
             border: 1px solid #ffcddb;
             backdrop-filter: blur(4px);
         }
-        .flower-btn span {
-            font-size: 1.9rem;
-        }
+        .flower-btn span { font-size: 1.9rem; }
         .flower-btn:hover {
             transform: translateY(-5px);
             background: #ffe3ed;
@@ -135,20 +132,16 @@ index.html
             box-shadow: 0 6px 14px #ffbfcf;
         }
 
-        /* контейнеры вкладок */
         .tab {
             display: none;
             animation: fadeSlide 0.4s ease;
         }
-        .tab.active-tab {
-            display: block;
-        }
+        .tab.active-tab { display: block; }
         @keyframes fadeSlide {
             from { opacity: 0; transform: translateY(12px);}
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* общие карточки */
         .card-panel {
             background: rgba(255, 250, 245, 0.7);
             backdrop-filter: blur(12px);
@@ -158,7 +151,7 @@ index.html
             box-shadow: 0 20px 35px rgba(150, 70, 90, 0.08);
         }
 
-        /* ========= 1. ФОТОГАЛЕРЕЯ (как флажки) ========= */
+        /* галерея */
         .photo-grid {
             display: flex;
             flex-wrap: wrap;
@@ -187,11 +180,7 @@ index.html
             font-size: 2rem;
             overflow: hidden;
         }
-        .photo-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .photo-preview img { width: 100%; height: 100%; object-fit: cover; }
         .photo-caption {
             font-size: 0.7rem;
             margin-top: 8px;
@@ -214,28 +203,18 @@ index.html
             padding: 0.5rem 1.2rem;
         }
 
-        /* ========= 2. АНИМЕ-ПЛЕЕР ========= */
-        .anime-player {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .anime-video {
-            background: #1c1116;
-            border-radius: 44px;
-            overflow: hidden;
-            box-shadow: 0 18px 28px rgba(0,0,0,0.2);
-        }
+        /* аниме плеер */
         .anime-video iframe {
             width: 100%;
             height: 380px;
             border: none;
+            border-radius: 32px;
         }
         .episode-list {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
         }
         .episode-btn {
             background: #ffecf2;
@@ -243,10 +222,9 @@ index.html
             padding: 0.3rem 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.1s;
         }
 
-        /* ========= 3. КНИГА ВОСПОМИНАНИЙ (загрузка фото, текст, эмодзи) ========= */
+        /* книга памяти */
         .memory-book {
             background: #fffef5;
             border-radius: 48px;
@@ -256,8 +234,8 @@ index.html
         .memory-grid {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
-            max-height: 480px;
+            gap: 1rem;
+            max-height: 460px;
             overflow-y: auto;
             padding-right: 8px;
         }
@@ -282,21 +260,9 @@ index.html
             font-size: 2rem;
             overflow: hidden;
         }
-        .memory-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .memory-text {
-            flex: 2;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #794b62;
-        }
-        .memory-emoji {
-            font-size: 1.6rem;
-            cursor: pointer;
-        }
+        .memory-img img { width: 100%; height: 100%; object-fit: cover; }
+        .memory-text { flex: 2; font-size: 0.9rem; font-weight: 500; color: #794b62; }
+        .memory-emoji { font-size: 1.6rem; cursor: pointer; }
         .book-controls {
             margin-top: 1.5rem;
             display: flex;
@@ -304,27 +270,21 @@ index.html
             flex-wrap: wrap;
             align-items: center;
         }
-        .emoji-picker {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+        .emoji-picker { display: flex; gap: 8px; flex-wrap: wrap; }
         .emoji-option {
             font-size: 1.6rem;
             cursor: pointer;
-            transition: 0.1s;
             background: #ffeef4;
             padding: 4px 8px;
             border-radius: 50px;
+            transition: 0.1s;
         }
-
         footer {
             text-align: center;
             margin-top: 2rem;
             font-size: 0.7rem;
             opacity: 0.6;
         }
-
         @media (max-width: 720px) {
             .photo-card { width: 110px; }
             .anime-video iframe { height: 240px; }
@@ -335,49 +295,43 @@ index.html
 <body>
 <div class="flower-bg"></div>
 
-<!-- WELCOME ЭКРАН -->
 <div id="welcomeScreen" class="welcome-screen">
     <div class="welcome-text">Welcome!</div>
-    <div class="welcome-sub">🌸 три лепестка · твои тёплые уголки 🌸</div>
+    <div class="welcome-sub">🌸 три лепестка · твои тёплые уголки 🌸<br>✨ данные сохраняются навсегда ✨</div>
 </div>
 
 <div id="mainSite" class="main-site">
-    <!-- Три цветка навигации -->
     <div class="flower-nav">
         <div class="flower-btn" data-tab="tab1"><span>🌸</span> Фото-флажки</div>
         <div class="flower-btn" data-tab="tab2"><span>🌼</span> Аниме эхо</div>
         <div class="flower-btn" data-tab="tab3"><span>🌺</span> Книга памяти</div>
     </div>
 
-    <!-- ВКЛАДКА 1: ФОТОГАЛЕРЕЯ (как флажки) -->
+    <!-- Вкладка 1: Фото-флажки -->
     <div id="tab1" class="tab active-tab">
         <div class="card-panel">
             <h2 style="color:#bc708b">📸 флажки-воспоминания</h2>
             <div id="photoGallery" class="photo-grid"></div>
             <div class="add-btn" id="addPhotoBtn">➕ повесить новое фото / картинку</div>
             <input type="file" id="photoFileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
-            <p style="font-size:0.7rem; margin-top:0.8rem;">✨ двойной клик по фото — удалить</p>
+            <p style="font-size:0.7rem; margin-top:0.8rem;">✨ двойной клик по фото — удалить (сохранится автоматически)</p>
         </div>
     </div>
 
-    <!-- ВКЛАДКА 2: АНИМЕ (Эхо террора + можно добавить серии) -->
+    <!-- Вкладка 2: Аниме -->
     <div id="tab2" class="tab">
         <div class="card-panel">
             <h2 style="color:#bc708b">🎬 Эхо террора / Zankyou no Terror</h2>
-            <div class="anime-player">
-                <div class="anime-video">
-                    <iframe id="animeIframe" src="https://www.youtube.com/embed/VxSzxoK0w24" allowfullscreen></iframe>
-                </div>
-                <div class="episode-list" id="episodeList">
-                    <!-- серии будут динамически -->
-                </div>
-                <div class="add-btn" id="addEpisodeBtn">➕ добавить серию (ссылка YouTube)</div>
-                <input type="text" id="episodeUrlInput" placeholder="вставьте ссылку на видео YouTube" style="display:none; width:100%; margin-top:8px; border-radius:60px; padding:6px;">
+            <div class="anime-video">
+                <iframe id="animeIframe" src="https://www.youtube.com/embed/VxSzxoK0w24" allowfullscreen></iframe>
             </div>
+            <div class="episode-list" id="episodeList"></div>
+            <div class="add-btn" id="addEpisodeBtn">➕ добавить серию (ссылка YouTube)</div>
+            <input type="text" id="episodeUrlInput" placeholder="вставьте embed-ссылку (https://www.youtube.com/embed/...)" style="display:none; width:100%; margin-top:8px; border-radius:60px; padding:6px;">
         </div>
     </div>
 
-    <!-- ВКЛАДКА 3: КНИГА ВОСПОМИНАНИЙ (загрузка фото, текст, эмодзи) -->
+    <!-- Вкладка 3: Книга памяти -->
     <div id="tab3" class="tab">
         <div class="card-panel memory-book">
             <h2 style="color:#bc708b">📖 книга · мои мгновения</h2>
@@ -385,57 +339,46 @@ index.html
             <div class="book-controls">
                 <div class="add-btn" id="addMemoryBtn">📸 добавить страницу (фото)</div>
                 <div class="emoji-picker" id="globalEmojiPicker">
-                    <span class="emoji-option">🌸</span>
-                    <span class="emoji-option">🍰</span>
-                    <span class="emoji-option">🐈‍⬛</span>
-                    <span class="emoji-option">✨</span>
-                    <span class="emoji-option">🌙</span>
-                    <span class="emoji-option">🎐</span>
-                    <span class="emoji-option">🍡</span>
-                    <span class="emoji-option">💖</span>
+                    <span class="emoji-option">🌸</span><span class="emoji-option">🍰</span><span class="emoji-option">🐈‍⬛</span>
+                    <span class="emoji-option">✨</span><span class="emoji-option">🌙</span><span class="emoji-option">🎐</span>
+                    <span class="emoji-option">🍡</span><span class="emoji-option">💖</span>
                 </div>
             </div>
             <input type="file" id="memoryFileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
             <p style="font-size:0.7rem; margin-top:1rem;">※ нажми на эмодзи, чтобы вставить в выбранную запись, или добавь новую запись с картинкой</p>
         </div>
     </div>
-    <footer>🌸 три цветка ведут к трём мирам · добавляй фото, смотри аниме, пиши книгу души 🌸</footer>
+    <footer>🌸 три цветка ведут к трём мирам · все фото, видео и записи сохраняются навсегда 🌸</footer>
 </div>
 
 <script>
-    // ---------- ПЕРЕХОД WELCOME ----------
-    const welcomeDiv = document.getElementById('welcomeScreen');
-    const mainSite = document.getElementById('mainSite');
-    setTimeout(() => {
-        welcomeDiv.style.opacity = '0';
-        setTimeout(() => {
-            welcomeDiv.style.display = 'none';
-            mainSite.style.opacity = '1';
-        }, 1100);
-    }, 2200);
+    // ========================  СОХРАНЕНИЕ В LOCALSTORAGE ========================
+    // Ключи
+    const STORAGE_KEYS = {
+        PHOTOS: 'sakura_photos_array',
+        EPISODES: 'sakura_episodes_array',
+        MEMORIES: 'sakura_memories_array'
+    };
 
-    // ---------- ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК (цветочки) ----------
-    const tabs = document.querySelectorAll('.tab');
-    const flowerBtns = document.querySelectorAll('.flower-btn');
-    function switchTab(tabId) {
-        tabs.forEach(t => t.classList.remove('active-tab'));
-        document.getElementById(tabId).classList.add('active-tab');
-        flowerBtns.forEach(btn => btn.classList.remove('active-flower'));
-        const activeBtn = Array.from(flowerBtns).find(btn => btn.dataset.tab === tabId);
-        if(activeBtn) activeBtn.classList.add('active-flower');
+    // ---------- 1. ФОТОГАЛЕРЕЯ ----------
+    let photosArray = [];
+
+    function savePhotos() {
+        localStorage.setItem(STORAGE_KEYS.PHOTOS, JSON.stringify(photosArray));
     }
-    flowerBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const tabId = btn.dataset.tab;
-            switchTab(tabId);
-        });
-    });
+    function loadPhotos() {
+        const saved = localStorage.getItem(STORAGE_KEYS.PHOTOS);
+        if(saved) {
+            photosArray = JSON.parse(saved);
+        } else {
+            // стартовые данные
+            photosArray = [
+                { type: 'emoji', content: '🌸🎐', label: 'сакура' },
+                { type: 'emoji', content: '🍰✨', label: 'сладость' }
+            ];
+        }
+    }
 
-    // ---------- 1. ФОТОГАЛЕРЕЯ (флажки) ----------
-    let photosArray = [
-        { type: 'emoji', content: '🌸🎐', label: 'сакура' },
-        { type: 'emoji', content: '🍰✨', label: 'сладость' }
-    ];
     const photoGallery = document.getElementById('photoGallery');
     const addPhotoBtn = document.getElementById('addPhotoBtn');
     const photoFileInput = document.getElementById('photoFileInput');
@@ -467,6 +410,7 @@ index.html
             card.addEventListener('dblclick', () => {
                 if(confirm('удалить флажок?')) {
                     photosArray.splice(idx,1);
+                    savePhotos();
                     renderGallery();
                 }
             });
@@ -483,19 +427,32 @@ index.html
                 let caption = prompt('подпись:', '🌸 момент');
                 if(!caption) caption = '✨ флажок';
                 photosArray.push({ type: 'image', content: ev.target.result, label: caption.slice(0,25) });
+                savePhotos();
                 renderGallery();
             };
             reader.readAsDataURL(file);
         }
         photoFileInput.value = '';
     });
-    renderGallery();
 
-    // ---------- 2. АНИМЕ-ПЛЕЕР (серии можно добавлять) ----------
-    let episodes = [
-        { name: "1 серия · начало", url: "https://www.youtube.com/embed/VxSzxoK0w24" },
-        { name: "2 серия · загадка", url: "https://www.youtube.com/embed/LfMa5j2T9cU" }
-    ];
+    // ---------- 2. АНИМЕ (серии) ----------
+    let episodes = [];
+
+    function saveEpisodes() {
+        localStorage.setItem(STORAGE_KEYS.EPISODES, JSON.stringify(episodes));
+    }
+    function loadEpisodes() {
+        const saved = localStorage.getItem(STORAGE_KEYS.EPISODES);
+        if(saved) {
+            episodes = JSON.parse(saved);
+        } else {
+            episodes = [
+                { name: "1 серия · начало", url: "https://www.youtube.com/embed/VxSzxoK0w24" },
+                { name: "2 серия · загадка", url: "https://www.youtube.com/embed/LfMa5j2T9cU" }
+            ];
+        }
+    }
+
     const animeIframe = document.getElementById('animeIframe');
     const episodeListDiv = document.getElementById('episodeList');
     const addEpisodeBtn = document.getElementById('addEpisodeBtn');
@@ -512,38 +469,52 @@ index.html
             });
             episodeListDiv.appendChild(epBtn);
         });
-        // добавить кнопку удаления последней? но оставим просто дополнение
+        if(episodes.length > 0 && animeIframe.src !== episodes[0]?.url) {
+            // не трогаем текущий плеер, если пользователь уже выбрал
+        }
     }
 
     addEpisodeBtn.addEventListener('click', () => {
         episodeUrlInput.style.display = 'block';
         episodeUrlInput.placeholder = 'вставьте embed-ссылку (https://www.youtube.com/embed/...)';
         episodeUrlInput.focus();
-        const tempHandler = () => {
+        const handler = () => {
             let url = episodeUrlInput.value.trim();
             if(url) {
                 let name = prompt('Название серии:', `Серия ${episodes.length+1}`);
                 if(!name) name = `Серия ${episodes.length+1}`;
                 episodes.push({ name: name, url: url });
+                saveEpisodes();
                 renderEpisodes();
             }
             episodeUrlInput.style.display = 'none';
             episodeUrlInput.value = '';
-            episodeUrlInput.removeEventListener('change', tempHandler);
+            episodeUrlInput.removeEventListener('change', handler);
         };
-        episodeUrlInput.addEventListener('change', tempHandler, { once: true });
+        episodeUrlInput.addEventListener('change', handler, { once: true });
     });
-    renderEpisodes();
 
-    // ---------- 3. КНИГА ВОСПОМИНАНИЙ (фото + текст + эмодзи выбор) ----------
-    let memories = [
-        { id: Date.now()+1, type: 'emoji', content: '🌸', text: 'первый лепесток', emoji: '🌸' },
-        { id: Date.now()+2, type: 'emoji', content: '🍰', text: 'десертный вечер', emoji: '🍰' }
-    ];
+    // ---------- 3. КНИГА ВОСПОМИНАНИЙ ----------
+    let memories = [];
+
+    function saveMemories() {
+        localStorage.setItem(STORAGE_KEYS.MEMORIES, JSON.stringify(memories));
+    }
+    function loadMemories() {
+        const saved = localStorage.getItem(STORAGE_KEYS.MEMORIES);
+        if(saved) {
+            memories = JSON.parse(saved);
+        } else {
+            memories = [
+                { id: Date.now()+1, type: 'emoji', content: '🌸', text: 'первый лепесток', emoji: '🌸' },
+                { id: Date.now()+2, type: 'emoji', content: '🍰', text: 'десертный вечер', emoji: '🍰' }
+            ];
+        }
+    }
+
     const memoryContainer = document.getElementById('memoryContainer');
     const addMemoryBtn = document.getElementById('addMemoryBtn');
     const memoryFileInput = document.getElementById('memoryFileInput');
-    let currentEditingId = null;  // для смены эмодзи у выбранной записи
 
     function renderMemoryBook() {
         memoryContainer.innerHTML = '';
@@ -573,7 +544,6 @@ index.html
             emojiSpan.title = 'нажми, чтобы сменить эмодзи для этой записи';
             emojiSpan.addEventListener('click', (e) => {
                 e.stopPropagation();
-                currentEditingId = mem.id;
                 const pickerDiv = document.createElement('div');
                 pickerDiv.style.position = 'absolute';
                 pickerDiv.style.backgroundColor = '#fff0f5';
@@ -591,9 +561,9 @@ index.html
                     spanEm.addEventListener('click', () => {
                         const found = memories.find(m => m.id === mem.id);
                         if(found) found.emoji = em;
+                        saveMemories();
                         renderMemoryBook();
                         pickerDiv.remove();
-                        currentEditingId = null;
                     });
                     pickerDiv.appendChild(spanEm);
                 });
@@ -613,6 +583,7 @@ index.html
             deleteBtn.addEventListener('click', () => {
                 if(confirm('удалить страницу из книги?')) {
                     memories = memories.filter(m => m.id !== mem.id);
+                    saveMemories();
                     renderMemoryBook();
                 }
             });
@@ -624,7 +595,6 @@ index.html
         });
     }
 
-    // добавить новую запись (с фото или эмодзи)
     function addNewMemory(imageDataUrl = null, customText = null) {
         let type = 'emoji';
         let content = '🌸';
@@ -632,7 +602,6 @@ index.html
             type = 'image';
             content = imageDataUrl;
         } else {
-            // случайная эмодзи из набора
             const emojis = ['🌸','🍰','🐈‍⬛','✨','🌙','🎐','🍡'];
             content = emojis[Math.floor(Math.random() * emojis.length)];
         }
@@ -646,12 +615,11 @@ index.html
             text: text.slice(0, 80),
             emoji: chosenEmoji
         });
+        saveMemories();
         renderMemoryBook();
     }
 
-    addMemoryBtn.addEventListener('click', () => {
-        memoryFileInput.click();
-    });
+    addMemoryBtn.addEventListener('click', () => memoryFileInput.click());
     memoryFileInput.addEventListener('change', (e) => {
         if(memoryFileInput.files && memoryFileInput.files[0]) {
             const file = memoryFileInput.files[0];
@@ -663,7 +631,8 @@ index.html
         }
         memoryFileInput.value = '';
     });
-    // также кнопка быстрого добавления эмодзи-записи (без фото)
+
+    // эмодзи-пикер для быстрого добавления
     const globalPicker = document.getElementById('globalEmojiPicker');
     if(globalPicker) {
         const emojiOptions = globalPicker.querySelectorAll('.emoji-option');
@@ -679,14 +648,47 @@ index.html
                     text: text.slice(0,70),
                     emoji: em
                 });
+                saveMemories();
                 renderMemoryBook();
             });
         });
     }
 
+    // ========== ЗАГРУЗКА ВСЕХ ДАННЫХ ==========
+    loadPhotos();
+    loadEpisodes();
+    loadMemories();
+
+    renderGallery();
+    renderEpisodes();
     renderMemoryBook();
-    // стартовая активация вкладки
-    switchTab('tab1');
+
+    // ========== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ==========
+    const tabs = document.querySelectorAll('.tab');
+    const flowerBtns = document.querySelectorAll('.flower-btn');
+    function switchTab(tabId) {
+        tabs.forEach(t => t.classList.remove('active-tab'));
+        document.getElementById(tabId).classList.add('active-tab');
+        flowerBtns.forEach(btn => btn.classList.remove('active-flower'));
+        const activeBtn = Array.from(flowerBtns).find(btn => btn.dataset.tab === tabId);
+        if(activeBtn) activeBtn.classList.add('active-flower');
+    }
+    flowerBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.dataset.tab;
+            switchTab(tabId);
+        });
+    });
+
+    // welcome fadeout
+    setTimeout(() => {
+        const welcomeDivElem = document.getElementById('welcomeScreen');
+        welcomeDivElem.style.opacity = '0';
+        setTimeout(() => {
+            welcomeDivElem.style.display = 'none';
+            document.getElementById('mainSite').style.opacity = '1';
+        }, 1100);
+    }, 2200);
 </script>
 </body>
 </html>
