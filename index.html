@@ -320,20 +320,19 @@
     // 🔥 ВАЖНО: замените эти данные на свои из консоли Firebase
     // Как получить: https://console.firebase.google.com → ваш проект → Настройки проекта → Общие → Ваши приложения
     
-    const firebaseConfig = {
-  apiKey: "AIzaSyDrpZ06tegYil-FPjkbaIrs6SnWisz2COA",
-  authDomain: "whitecrowandbelka.firebaseapp.com",
-  projectId: "whitecrowandbelka",
-  storageBucket: "whitecrowandbelka.firebasestorage.app",
-  messagingSenderId: "1036186149770",
-  appId: "1:1036186149770:web:9a1f6fb3d3918588dd5e73",
-  measurementId: "G-KB5P82WW3C"
+   const firebaseConfig = {
+  apiKey: "AIzaSyCt9V8VbTBfHaf2KIf8XiK6iqSwUlb5bzg",
+  authDomain: "sakura-3d19d.firebaseapp.com",
+  projectId: "sakura-3d19d",
+  storageBucket: "sakura-3d19d.firebasestorage.app",
+  messagingSenderId: "999420556921",
+  appId: "1:999420556921:web:7fd4ecd4810aa0624dc6a8",
+  measurementId: "G-PCQPK8P4HF"
 };
 
-    // ИНИЦИАЛИЗАЦИЯ FIREBASE
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'loading-overlay';
     loadingDiv.innerText = '🌸 загрузка вечных воспоминаний... 🌸';
